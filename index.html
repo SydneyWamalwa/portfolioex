@@ -1,137 +1,835 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sydney Erik Wamalwa - The TechBro</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sydney Erik Wamalwa - Full-Stack Software Engineer | Backend Systems & Cloud Architecture</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sydney Erik Wamalwa - Software Engineer specializing in backend systems, REST APIs, cloud infrastructure, and sustainable technology. Founder of StellarPay, ViralVision, NetShare & Soteria.">
+    <meta name="keywords" content="Sydney Wamalwa, Software Engineer, Backend Developer, Cloud Architecture, FastAPI, Python, JavaScript, REST API, AWS, MySQL, Nairobi, Kenya, Full-Stack Developer, StellarPay, ViralVision, Soteria">
+    <meta name="author" content="Sydney Erik Wamalwa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Sydney Erik Wamalwa - Software Engineer">
+    <meta property="og:description" content="Backend Systems Engineer specializing in APIs, Cloud Infrastructure & Sustainable Tech Solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sydneywamalwa.com">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sydney Erik Wamalwa - Software Engineer">
+    <meta name="twitter:description" content="Backend Systems Engineer | Cloud Architecture | Sustainable Tech">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sydneywamalwa.com">
+    
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #3468C0;
-            color: #fff; /* Text color for the body */
-            width: 100%;
         }
 
-        header, #bio, footer {
-            background-color: #3468C0;
-            color: #fff;
-            text-align: center;
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0F0;
+            overflow-x: hidden;
         }
 
-        header, footer {
-            padding: 1em 0;
-        }
-
-        header img {
-            max-width: 100px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        #bio {
-            padding: 40px 20px;
-            display: flex;
-            align-items: center; /* Center content vertically */
-        }
-
-        #bio img {
-            max-width: 300px; /* Adjust the image size */
-            height: 350px;
-            margin-right: 20px;
-            border-radius: 100%; /* Optional: Add border-radius for a rounded image */
-        }
-
-        #bio div {
-            flex-grow: 1; /* Take up remaining space */
-        }
-
-        #bio p {
-            font-size: 1.2em;
-            color: #fff; /* Text color for the bio section */
-        }
-
-        footer {
-            padding: 20px 0;
+        #matrix-canvas {
             position: fixed;
-            bottom: 0;
-            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.3;
         }
 
-        footer a, .social-media a {
-            color: #fff; /* Link color */
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-        footer a:hover, .social-media a:hover{
-            color: orange;
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, #0F0 2px, #0F0 4px);
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 10;
         }
 
         .content {
-            display: flex;
-            flex-direction: row;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
             width: 100%;
-            font-size: x-large;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid #0F0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 50;
+            backdrop-filter: blur(10px);
         }
-        .bro{
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-style: italic;
-            font-weight: bold;
-            border: 2px solid #fff; /* Set the border style and color */
-            border-radius: 10px; /* Set a value for rounded corners */
-            padding: 10px; /* Add padding for better visibility */
-            display: inline-block; /* Ensure the border wraps around the content */
+
+        nav a {
+            color: #0F0;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
         }
-        .bro p {
-            margin: 0; /* Remove default margin for the paragraph */
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #0F0;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-line {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .hero-box {
+            border: 2px solid #0F0;
+            padding: 1px;
+            margin: 2rem 0;
+        }
+
+        .hero-inner {
+            border: 1px solid #0F0;
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .status-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .pulse {
+            width: 10px;
+            height: 10px;
+            background: #0F0;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 2px solid #0F0;
+            color: #0F0;
+            text-decoration: none;
+            margin: 1rem 1rem 0 0;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #0F0;
+            color: #000;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            border: 2px solid #0F0;
+            padding: 2rem;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            background: rgba(0, 255, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #000;
+            border: 1px solid #0F0;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: #0F0;
+            transition: width 2s ease;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #0F0;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border: 1px solid #0F0;
+            font-size: 0.75rem;
+            animation: pulse 2s infinite;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border: 1px solid #0F0;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 1px solid #0F0;
+            color: #0F0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #0F0;
+            color: #000;
+        }
+
+        footer {
+            border-top: 2px solid #0F0;
+            padding: 2rem;
+            text-align: center;
+            background: #000;
+        }
+
+        .typing-cursor::after {
+            content: '█';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .fellowship-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 2px solid #0F0;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        ul li::before {
+            content: '▸ ';
+            color: #0F0;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 5rem 1rem 2rem; }
+            .hero-inner { padding: 1.5rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            nav a { margin-left: 0; margin: 0 0.5rem; }
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <h1>Crafting Code, Sculpting Art: The Tech-Driven Artist</h1>
-        </div>
-    </header>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanlines"></div>
 
-    <section id="bio">
-        <div class="container">
-            <div class="bro"><p>The TechBro👨🏿‍💻</p></div>
-            <div class="content">
-                <img src="Syd-passport photo_page-0001.jpg" alt="Logo for Sydney Erik Wamalwa">
-                <div>
-                    <p>As a Nairobi-based software engineer, I compose elegant solutions using Python, JavaScript, HTML, CSS and Java. Beyond code, I bridge art and tech, infusing creativity into user interfaces and database optimization. My global vision? Technology without boundaries, impact without limits.</p>
+    <div class="content">
+        <nav>
+            <div>[sydney@matrix ~]$</div>
+            <div>
+                <a href="#about">--about</a>
+                <a href="#expertise">--expertise</a>
+                <a href="#ventures">--ventures</a>
+                <a href="#skills">--skills</a>
+                <a href="#contact">--contact</a>
             </div>
-        </div>
-        </div>
-    </section>
+        </nav>
 
-    <footer>
-        <div class="container">
-            <p>© 2024 Sydney Erik Wamalwa</p>
-            <div class="social-media">
-                <a href="https://www.linkedin.com/in/sydney-wamalwa-679b29240/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://www.instagram.com/wamalwasydney/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://github.com/SydneyWamalwa" target="_blank" rel="noopener noreferrer">Github</a>
+        <section id="hero">
+            <div class="container">
+                <div class="terminal-line">[ESTABLISHING SECURE CONNECTION...]</div>
+                <div class="terminal-line">[CONNECTION ESTABLISHED]</div>
+                <div class="terminal-line">[LOADING USER PROFILE...]</div>
+                
+                <div style="margin: 2rem 0;">
+                    <div style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="typing-cursor" id="typed-text"></div>
+                    <div class="terminal-line">&gt; sydney_wamalwa</div>
+                </div>
 
+                <div class="hero-box">
+                    <div class="hero-inner">
+                        <h1>SYDNEY ERIK WAMALWA</h1>
+                        
+                        <div style="font-size: 1.5rem; margin-bottom: 2rem;">
+                            <span style="color: #f00;">[</span>
+                            <span class="pulse"></span>
+                            <span style="color: #f00;">]</span>
+                            FULL-STACK SOFTWARE ENGINEER
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <div class="status-line">&gt; Location: Nairobi, Kenya</div>
+                            <div class="status-line">&gt; Status: <span style="color: #fff;" class="pulse">AVAILABLE_FOR_HIRE</span></div>
+                            <div class="status-line">&gt; Clearance: FULL_STACK | BACKEND | CLOUD</div>
+                            <div class="status-line">&gt; Core Stack: Python | JavaScript | FastAPI | Flask | AWS</div>
+                        </div>
+
+                        <div class="fellowship-badge">
+                            🏆 beVisioneers Fellow
+                        </div>
+
+                        <div style="border-top: 1px solid #0F0; padding-top: 2rem; margin-top: 2rem;">
+                            <p style="font-size: 1.1rem; line-height: 1.8;">
+                                Backend systems architect and sustainable tech innovator building platforms that solve 
+                                real-world problems across payments, healthcare, e-waste management, and decentralized infrastructure. 
+                                Specializing in secure REST APIs, cloud deployment, and circular economy engineering.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#ventures" class="btn">[VIEW_VENTURES]</a>
+                <a href="#contact" class="btn">[INITIATE_CONTACT]</a>
+
+                <div style="text-align: center; margin-top: 3rem; animation: pulse 2s infinite;">
+                    <div style="font-size: 2rem;">↓</div>
+                    <div style="font-size: 0.75rem;">SCROLL_TO_CONTINUE</div>
+                </div>
             </div>
-            <a href="Sydney Wamalwa Resume.pdf" download>Download CV</a>
-        </div>
-    </footer>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="terminal-line">&gt; cat /home/sydney/profile.txt</div>
+                <h2>[SYSTEM_OVERVIEW]</h2>
+                
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3>👨‍💻 Software Engineer Profile</h3>
+                    <p style="opacity: 0.9; line-height: 1.8; margin-top: 1rem;">
+                        Software engineer specializing in backend systems, APIs, cloud infrastructure, and sustainable technology solutions. 
+                        Founder of circular-tech and digital infrastructure platforms building real-world solutions.
+                    </p>
+                    <p style="opacity: 0.9; line-height: 1.8; margin-top: 1rem;">
+                        Experienced with large production codebases, secure REST architectures, cloud deployment platforms, 
+                        and interoperable data exchange systems. Combining technical expertise with sustainable innovation 
+                        to create impactful solutions.
+                    </p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🌍</div>
+                        <h3>Global Impact Engineering</h3>
+                        <p style="opacity: 0.9; line-height: 1.8;">
+                            Building systems that transcend boundaries. Creating scalable solutions for payments, 
+                            healthcare data exchange, and sustainable technology that solve real-world problems 
+                            across multiple domains.
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">♻️</div>
+                        <h3>Sustainable Tech Innovation</h3>
+                        <p style="opacity: 0.9; line-height: 1.8;">
+                            Circular economy engineering for refurbishing phones and laptops as climate action. 
+                            Designing digital incentive systems for environmental preservation and creating 
+                            tech solutions for a sustainable future.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <div class="container">
+                <div class="terminal-line">&gt; cat /technical/expertise.log</div>
+                <h2>[TECHNICAL_EXPERTISE]</h2>
+                
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3>⚙️ Backend & API Engineering</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>REST, JSON APIs, WebSockets</li>
+                            <li>FastAPI, Flask, PHP frameworks</li>
+                            <li>Healthcare data exchange (FHIR)</li>
+                            <li>JWT, OAuth authentication flows</li>
+                            <li>Secure endpoint protection</li>
+                            <li>API architecture design</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>☁️ Cloud & DevOps</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>AWS deployment & testing</li>
+                            <li>Fly.io & Render infrastructure</li>
+                            <li>Laravel PHP codebases</li>
+                            <li>CI/CD pipelines</li>
+                            <li>Containerization & orchestration</li>
+                            <li>Reverse tunneling & routing</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>🗄️ Databases & Systems</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>MySQL persistence architectures</li>
+                            <li>Shared database integration</li>
+                            <li>Python-Laravel data bridges</li>
+                            <li>Data modeling & optimization</li>
+                            <li>Interoperable data exchange</li>
+                            <li>Healthcare standards (FHIR)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ventures">
+            <div class="container">
+                <div class="terminal-line">&gt; ./list_ventures.sh --all</div>
+                <h2>[FOUNDER_&_ENGINEER_VENTURES]</h2>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="project-header">
+                            <div style="font-size: 2rem;">💳</div>
+                            <span class="status-badge">ACTIVE</span>
+                        </div>
+                        <h3>StellarPay</h3>
+                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
+                            Founding Engineer & Architect of a Stellar blockchain-based web payment platform 
+                            using multi-party escrow agreements for secure transactions.
+                        </p>
+                        <div>
+                            <span class="tag">Stellar Blockchain</span>
+                            <span class="tag">Payment Systems</span>
+                            <span class="tag">Multi-Party Escrow</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="project-header">
+                            <div style="font-size: 2rem;">🎭</div>
+                            <span class="status-badge">DEPLOYED</span>
+                        </div>
+                        <h3>ViralVision</h3>
+                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
+                            Creator of a Gen Z social platform for AI-generated memes and short video content, 
+                            combining content creation with viral distribution mechanics.
+                        </p>
+                        <div>
+                            <span class="tag">AI Generation</span>
+                            <span class="tag">Social Platform</span>
+                            <span class="tag">Video Content</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="project-header">
+                            <div style="font-size: 2rem;">🌐</div>
+                            <span class="status-badge">OPERATIONAL</span>
+                        </div>
+                        <h3>NetShare</h3>
+                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
+                            Founder of a peer-to-peer internet bandwidth sharing platform inspired by Honeygain 
+                            reward mechanics, democratizing internet access.
+                        </p>
+                        <div>
+                            <span class="tag">P2P Network</span>
+                            <span class="tag">Bandwidth Sharing</span>
+                            <span class="tag">Reward System</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="project-header">
+                            <div style="font-size: 2rem;">🔐</div>
+                            <span class="status-badge">PROTOTYPE</span>
+                        </div>
+                        <h3>SecureNet Overlay Nation</h3>
+                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
+                            White-paper prototype for a quantum-secure digital nation funded through 
+                            enterprise mints, redefining digital sovereignty.
+                        </p>
+                        <div>
+                            <span class="tag">Quantum Security</span>
+                            <span class="tag">Digital Nation</span>
+                            <span class="tag">Infrastructure</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="project-header">
+                            <div style="font-size: 2rem;">🛡️</div>
+                            <span class="status-badge">ARCHITECTURE</span>
+                        </div>
+                        <h3>Soteria</h3>
+                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
+                            Founding Architect of a quantum-secure digital nation overlay integrating 
+                            participatory governance and sustainability frameworks.
+                        </p>
+                        <div>
+                            <span class="tag">Quantum Secure</span>
+                            <span class="tag">Governance</span>
+                            <span class="tag">Sustainability</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="project-header">
+                            <div style="font-size: 2rem;">♻️</div>
+                            <span class="status-badge">IMPACT</span>
+                        </div>
+                        <h3>Circular Tech Initiative</h3>
+                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
+                            Circular economy engineering for refurbishing phones and laptops as a climate 
+                            action solution, reducing e-waste and promoting sustainability.
+                        </p>
+                        <div>
+                            <span class="tag">E-Waste</span>
+                            <span class="tag">Climate Action</span>
+                            <span class="tag">Circular Economy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="terminal-line">&gt; ls -la /skills/</div>
+                <h2>[TECHNICAL_ARSENAL]</h2>
+                
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3>Python</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="95"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            █████████▓
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[95%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>FastAPI / Flask</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="92"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            █████████░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[92%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>JavaScript</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="85"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            ████████░░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[85%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>REST APIs</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="95"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            █████████▓
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[95%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>AWS Cloud</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="85"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            ████████░░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[85%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>MySQL</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="88"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            ████████▓░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[88%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>PHP / Laravel</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="80"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            ████████░░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[80%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>WebSockets</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="82"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            ████████░░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[82%]</div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Docker / CI/CD</h3>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-level="85"></div>
+                        </div>
+                        <div style="font-size: 0.75rem; opacity: 0.6;">
+                            ████████░░
+                        </div>
+                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[85%]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="terminal-line">&gt; init_connection --secure</div>
+                <h2>[ESTABLISH_LINK]</h2>
+                
+                <div style="border: 2px solid #0F0; padding: 3rem; background: rgba(0, 0, 0, 0.5);">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.8;">
+                        Ready to collaborate on backend systems, cloud architecture, or sustainable tech solutions? 
+                        Execute the connection protocol and let's build something extraordinary together.
+                    </p>
+
+                    <div class="social-links" style="margin-bottom: 2rem;">
+                        <a href="https://github.com/SydneyWamalwa" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>📁</span>
+                            <span>github.com/SydneyWamalwa</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sydney-wamalwa-679b29240/" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>💼</span>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://www.instagram.com/wamalwasydney/" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <span>📸</span>
+                            <span>@wamalwasydney</span>
+                        </a>
+                        <a href="mailto:sydney@example.com" class="social-link">
+                            <span>✉️</span>
+                            <span>sydney@example.com</span>
+                        </a>
+                    </div>
+
+                    <a href="Sydney Wamalwa Resume.pdf" download class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>📥</span>
+                        <span>[DOWNLOAD_RESUME.pdf]</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="terminal-line">&gt; System.exit(0);</div>
+            <p>© <span id="current-year"></span> SYDNEY_ERIK_WAMALWA // ALL_RIGHTS_RESERVED</p>
+            <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.5rem;">
+                Backend Engineer | Cloud Architect | Sustainable Tech Innovator | beVisioneers Fellow
+            </p>
+            <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.25rem;">
+                [Built with Precision // Deployed with Purpose // Optimized for Impact]
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Auto-update footer year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Typing Effect
+        const typedTextElement = document.getElementById('typed-text');
+        const fullText = "root@sydney:~$ whoami";
+        let index = 0;
+
+        function typeText() {
+            if (index <= fullText.length) {
+                typedTextElement.textContent = fullText.slice(0, index);
+                index++;
+                setTimeout(typeText, 100);
+            } else {
+                typedTextElement.classList.remove('typing-cursor');
+            }
+        }
+
+        setTimeout(typeText, 1000);
+
+        // Animate Skill Bars
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-fill');
+                    skillBars.forEach(bar => {
+                        const level = bar.getAttribute('data-level');
+                        bar.style.width = level + '%';
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
