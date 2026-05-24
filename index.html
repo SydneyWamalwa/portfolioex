@@ -3,311 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sydney Erik Wamalwa - Full-Stack Software Engineer | Backend Systems & Cloud Architecture</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Sydney Erik Wamalwa - Software Engineer specializing in backend systems, REST APIs, cloud infrastructure, and sustainable technology. Founder of StellarPay, ViralVision, NetShare & Soteria.">
-    <meta name="keywords" content="Sydney Wamalwa, Software Engineer, Backend Developer, Cloud Architecture, FastAPI, Python, JavaScript, REST API, AWS, MySQL, Nairobi, Kenya, Full-Stack Developer, StellarPay, ViralVision, Soteria">
+    <title>Sydney Erik Wamalwa — Full-Stack Software Engineer</title>
+    <meta name="description" content="Sydney Erik Wamalwa — Full-Stack Software Engineer specializing in backend systems, REST APIs, cloud infrastructure, AI integration, and mobile development. Based in Nairobi, Kenya.">
+    <meta name="keywords" content="Sydney Wamalwa, Software Engineer, Full-Stack Developer, React, Flutter, Node.js, Python, FastAPI, AWS, Nairobi, Kenya">
     <meta name="author" content="Sydney Erik Wamalwa">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Sydney Erik Wamalwa - Software Engineer">
-    <meta property="og:description" content="Backend Systems Engineer specializing in APIs, Cloud Infrastructure & Sustainable Tech Solutions">
+    <meta property="og:title" content="Sydney Erik Wamalwa — Full-Stack Software Engineer">
+    <meta property="og:description" content="Full-Stack Engineer | AI Integration | Cloud | Mobile | Fintech">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sydneywamalwa.com">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sydney Erik Wamalwa - Software Engineer">
-    <meta name="twitter:description" content="Backend Systems Engineer | Cloud Architecture | Sustainable Tech">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://sydneywamalwa.com">
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+        :root {
+            --green: #00ff41;
+            --green-dim: #00cc33;
+            --green-glow: rgba(0,255,65,0.15);
+            --bg: #050a05;
+            --bg2: #080f08;
+            --surface: rgba(0,255,65,0.04);
+            --border: rgba(0,255,65,0.25);
+            --border-bright: rgba(0,255,65,0.6);
+            --text: #c8ffc8;
+            --text-dim: rgba(200,255,200,0.55);
+            --red: #ff3333;
+            --amber: #ffb300;
         }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Courier New', monospace;
-            background: #000;
-            color: #0F0;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
+        /* ── MATRIX CANVAS ── */
         #matrix-canvas {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             z-index: 0;
-            opacity: 0.3;
+            opacity: 0.18;
+            pointer-events: none;
         }
 
         .scanlines {
             position: fixed;
             inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, #0F0 2px, #0F0 4px);
-            opacity: 0.1;
+            background: repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,65,0.03) 3px,rgba(0,255,65,0.03) 4px);
             pointer-events: none;
-            z-index: 10;
+            z-index: 2;
         }
 
-        .content {
-            position: relative;
-            z-index: 1;
-        }
+        .content { position: relative; z-index: 3; }
 
+        /* ── NAV ── */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 2px solid #0F0;
-            padding: 1rem 2rem;
+            background: rgba(5,10,5,0.92);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 50;
-            backdrop-filter: blur(10px);
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
-        nav a {
-            color: #0F0;
+        .nav-brand {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--green);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links { display: flex; gap: 1.8rem; }
+
+        .nav-links a {
+            color: var(--text-dim);
             text-decoration: none;
-            margin-left: 1.5rem;
-            transition: color 0.3s;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: #fff;
-        }
+        .nav-links a:hover { color: var(--green); }
 
+        /* ── SECTIONS ── */
         section {
-            min-height: 100vh;
-            padding: 6rem 2rem 4rem;
+            padding: 7rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
-        .container {
-            max-width: 1200px;
-            width: 100%;
+        .section-label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.4rem;
         }
 
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid #0F0;
+        .section-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.8rem;
+            color: var(--green);
+            border-left: 3px solid var(--green);
             padding-left: 1rem;
         }
 
-        h3 {
-            font-size: 1.5rem;
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+        }
+
+        .hero-prompt {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-name {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            color: var(--green);
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            text-shadow: 0 0 40px rgba(0,255,65,0.3);
             margin-bottom: 1rem;
         }
 
-        .terminal-line {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.6;
+        .hero-title {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.12em;
         }
 
-        .hero-box {
-            border: 2px solid #0F0;
-            padding: 1px;
-            margin: 2rem 0;
-        }
-
-        .hero-inner {
-            border: 1px solid #0F0;
-            padding: 3rem;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .status-line {
-            display: flex;
+        .hero-status {
+            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
+            gap: 0.6rem;
+            border: 1px solid var(--border-bright);
+            padding: 0.5rem 1.1rem;
+            margin-bottom: 2.5rem;
+            background: var(--green-glow);
+            font-size: 0.8rem;
         }
 
-        .pulse {
-            width: 10px;
-            height: 10px;
-            background: #0F0;
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            animation: blink 1.8s ease-in-out infinite;
+            flex-shrink: 0;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+        .hero-bio {
+            max-width: 680px;
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.9;
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+            margin-bottom: 3rem;
         }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        .hero-meta span::before { content: '▸ '; color: var(--green); }
+
+        .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
 
         .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border: 2px solid #0F0;
-            color: #0F0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border: 1px solid var(--border-bright);
+            color: var(--green);
             text-decoration: none;
-            margin: 1rem 1rem 0 0;
-            transition: all 0.3s;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            transition: all 0.25s;
+            background: transparent;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background: #0F0;
-            color: #000;
-        }
+        .btn:hover { background: var(--green); color: var(--bg); border-color: var(--green); }
+        .btn-outline { background: transparent; }
 
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
+        /* ── CARDS / GRID ── */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
 
         .card {
-            border: 2px solid #0F0;
-            padding: 2rem;
-            transition: all 0.3s;
-            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            padding: 1.8rem;
+            background: var(--surface);
+            transition: border-color 0.25s, transform 0.25s;
         }
 
-        .card:hover {
-            background: rgba(0, 255, 0, 0.05);
-            transform: translateY(-5px);
+        .card:hover { border-color: var(--border-bright); transform: translateY(-3px); }
+
+        .card-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+
+        .card-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            color: var(--green);
+            margin-bottom: 0.6rem;
         }
 
-        .skill-bar {
-            width: 100%;
+        .card-text {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        /* ── EXPERIENCE ── */
+        .exp-entry {
+            border-left: 2px solid var(--border);
+            padding-left: 1.8rem;
+            padding-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .exp-entry::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
             height: 8px;
-            background: #000;
-            border: 1px solid #0F0;
-            margin: 1rem 0;
-            overflow: hidden;
+            background: var(--green);
+            border-radius: 50%;
         }
 
-        .skill-fill {
-            height: 100%;
-            background: #0F0;
-            transition: width 2s ease;
+        .exp-entry:last-child { padding-bottom: 0; }
+
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.4rem; }
+
+        .exp-role {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            color: var(--green);
         }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #0F0;
-            padding-bottom: 1rem;
+        .exp-date {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.6rem;
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            font-size: 0.8rem;
+            color: var(--amber);
             margin-bottom: 1rem;
+            letter-spacing: 0.04em;
         }
 
-        .status-badge {
-            padding: 0.25rem 0.75rem;
-            border: 1px solid #0F0;
-            font-size: 0.75rem;
-            animation: pulse 2s infinite;
+        .exp-bullets { list-style: none; padding: 0; }
+
+        .exp-bullets li {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            padding: 0.3rem 0;
+            line-height: 1.7;
         }
+
+        .exp-bullets li::before { content: '▸ '; color: var(--green); }
+
+        /* ── SKILLS ── */
+        .skill-group-title {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
         .tag {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border: 1px solid #0F0;
-            font-size: 0.75rem;
-            margin: 0.25rem;
-            background: rgba(0, 255, 0, 0.1);
+            padding: 0.3rem 0.75rem;
+            border: 1px solid var(--border);
+            font-size: 0.73rem;
+            color: var(--text-dim);
+            background: var(--surface);
+            transition: all 0.2s;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .tag:hover { border-color: var(--green); color: var(--green); }
+
+        /* ── PROJECTS ── */
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid currentColor;
+            margin-bottom: 0.8rem;
         }
+
+        .badge-active { color: var(--green); }
+        .badge-deployed { color: var(--amber); }
+        .badge-prototype { color: var(--text-dim); }
+
+        /* ── EDUCATION / CERT ── */
+        .edu-entry {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            margin-bottom: 1rem;
+            transition: border-color 0.25s;
+        }
+
+        .edu-entry:hover { border-color: var(--border-bright); }
+
+        .edu-year {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            min-width: 100px;
+            padding-top: 0.2rem;
+        }
+
+        .edu-info { flex: 1; }
+
+        .edu-degree {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--green);
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-school {
+            font-size: 0.78rem;
+            color: var(--amber);
+        }
+
+        /* ── CONTACT ── */
+        .contact-box {
+            border: 1px solid var(--border);
+            padding: 3rem;
+            background: var(--surface);
+        }
+
+        .social-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 
         .social-link {
-            flex: 1;
-            min-width: 200px;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            border: 1px solid #0F0;
-            color: #0F0;
+            gap: 0.7rem;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
             text-decoration: none;
-            transition: all 0.3s;
+            font-size: 0.8rem;
+            transition: all 0.25s;
+            flex: 1;
+            min-width: 200px;
         }
 
-        .social-link:hover {
-            background: #0F0;
-            color: #000;
-        }
+        .social-link:hover { border-color: var(--green); color: var(--green); background: var(--green-glow); }
 
+        /* ── FOOTER ── */
         footer {
-            border-top: 2px solid #0F0;
-            padding: 2rem;
+            border-top: 1px solid var(--border);
+            padding: 2.5rem;
             text-align: center;
-            background: #000;
+            background: var(--bg);
         }
 
-        .typing-cursor::after {
-            content: '█';
-            animation: blink 1s infinite;
-        }
+        footer p { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.4rem; }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        /* ── MISC ── */
+        .cursor::after { content: '█'; animation: blink 1s step-end infinite; }
 
-        .fellowship-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border: 2px solid #0F0;
-            margin: 1rem 0;
-            font-size: 1.2rem;
-            background: rgba(0, 255, 0, 0.1);
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            padding: 0.5rem 0;
-            opacity: 0.9;
-        }
-
-        ul li::before {
-            content: '▸ ';
-            color: #0F0;
-        }
-
+        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            section { padding: 5rem 1rem 2rem; }
-            .hero-inner { padding: 1.5rem; }
-            nav { flex-direction: column; gap: 1rem; }
-            nav a { margin-left: 0; margin: 0 0.5rem; }
+            nav { flex-direction: column; gap: 0.8rem; padding: 1rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .hero-name { font-size: 2.2rem; }
+            section { padding: 5rem 1.2rem 3rem; }
+            .exp-header { flex-direction: column; }
+            .contact-box { padding: 1.5rem; }
+            .edu-entry { flex-direction: column; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -316,518 +432,500 @@
     <div class="scanlines"></div>
 
     <div class="content">
+        <!-- NAV -->
         <nav>
-            <div>[sydney@matrix ~]$</div>
-            <div>
-                <a href="#about">--about</a>
-                <a href="#expertise">--expertise</a>
-                <a href="#ventures">--ventures</a>
-                <a href="#skills">--skills</a>
-                <a href="#contact">--contact</a>
+            <div class="nav-brand">[sydney@wamalwa ~]$</div>
+            <div class="nav-links">
+                <a href="#experience">experience</a>
+                <a href="#projects">projects</a>
+                <a href="#skills">skills</a>
+                <a href="#education">education</a>
+                <a href="#contact">contact</a>
             </div>
         </nav>
 
+        <!-- HERO -->
         <section id="hero">
-            <div class="container">
-                <div class="terminal-line">[ESTABLISHING SECURE CONNECTION...]</div>
-                <div class="terminal-line">[CONNECTION ESTABLISHED]</div>
-                <div class="terminal-line">[LOADING USER PROFILE...]</div>
-                
-                <div style="margin: 2rem 0;">
-                    <div style="font-size: 1.2rem; margin-bottom: 0.5rem;" class="typing-cursor" id="typed-text"></div>
-                    <div class="terminal-line">&gt; sydney_wamalwa</div>
+            <div class="hero-prompt">&gt; whoami</div>
+            <h1 class="hero-name">SYDNEY ERIK<br>WAMALWA</h1>
+            <div class="hero-title">FULL-STACK SOFTWARE ENGINEER</div>
+
+            <div class="hero-status">
+                <span class="dot"></span>
+                AVAILABLE FOR HIRE &nbsp;|&nbsp; OPEN TO OPPORTUNITIES
+            </div>
+
+            <div class="hero-meta">
+                <span>Nairobi, Kenya</span>
+                <span>BSc Software Engineering · ALU, Kigali</span>
+                <span>beVisioneers Fellow · Mercedes-Benz</span>
+                <span>3+ Years Experience</span>
+            </div>
+
+            <p class="hero-bio">
+                Full-Stack Software Engineer with 3+ years building dynamic web and mobile applications across 
+                banking, fintech, healthcare, and non-profit sectors. Experienced with large production codebases, 
+                Shariah-compliant financial platforms, AI chatbot integration, cloud deployment, and open-source contribution. 
+                Currently building the Al Shmokh Capital mobile app and Claude AI integrations at djava Factory.
+            </p>
+
+            <div class="hero-ctas">
+                <a href="#experience" class="btn">▸ VIEW EXPERIENCE</a>
+                <a href="#contact" class="btn btn-outline">✉ GET IN TOUCH</a>
+                <a href="Sydney_Wamalwa_CV.pdf" download class="btn btn-outline">↓ DOWNLOAD CV</a>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">&gt; cat experience.log</div>
+                    <h2 class="section-title">WORK EXPERIENCE</h2>
                 </div>
+            </div>
 
-                <div class="hero-box">
-                    <div class="hero-inner">
-                        <h1>SYDNEY ERIK WAMALWA</h1>
-                        
-                        <div style="font-size: 1.5rem; margin-bottom: 2rem;">
-                            <span style="color: #f00;">[</span>
-                            <span class="pulse"></span>
-                            <span style="color: #f00;">]</span>
-                            FULL-STACK SOFTWARE ENGINEER
-                        </div>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <div class="status-line">&gt; Location: Nairobi, Kenya</div>
-                            <div class="status-line">&gt; Status: <span style="color: #fff;" class="pulse">AVAILABLE_FOR_HIRE</span></div>
-                            <div class="status-line">&gt; Clearance: FULL_STACK | BACKEND | CLOUD</div>
-                            <div class="status-line">&gt; Core Stack: Python | JavaScript | FastAPI | Flask | AWS</div>
-                        </div>
-
-                        <div class="fellowship-badge">
-                            🏆 beVisioneers Fellow
-                        </div>
-
-                        <div style="border-top: 1px solid #0F0; padding-top: 2rem; margin-top: 2rem;">
-                            <p style="font-size: 1.1rem; line-height: 1.8;">
-                                Backend systems architect and sustainable tech innovator building platforms that solve 
-                                real-world problems across payments, healthcare, e-waste management, and decentralized infrastructure. 
-                                Specializing in secure REST APIs, cloud deployment, and circular economy engineering.
-                            </p>
-                        </div>
-                    </div>
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-role">Software Support Analyst</span>
+                    <span class="exp-date">DEC 2025 – PRESENT</span>
                 </div>
+                <div class="exp-company">djava Factory Sdn Bhd · Remote · Malaysia</div>
+                <ul class="exp-bullets">
+                    <li>Frontline application support for the COMEX / Al Shmokh Capital platform — a Shariah-compliant commodity exchange built on JHipster / Quarkus</li>
+                    <li>Diagnose and resolve platform issues via Quarkus logs, database logs, and direct SQL queries against production schema; execute data patches and code fixes</li>
+                    <li>Building the Al Shmokh Capital React Native mobile app (iOS & Android) — managing EAS/Expo build pipelines, Apple/Google provisioning, and secure API integration</li>
+                    <li>Developed and integrated a Claude AI-powered chatbot into the Al Shmokh web app, engineering backend AI calls off the Vert.x event loop to prevent WebSocket blocking</li>
+                </ul>
+            </div>
 
-                <a href="#ventures" class="btn">[VIEW_VENTURES]</a>
-                <a href="#contact" class="btn">[INITIATE_CONTACT]</a>
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-role">DevOps Engineer Intern</span>
+                    <span class="exp-date">FEB 2025 – APR 2025</span>
+                </div>
+                <div class="exp-company">Zendawa · Nairobi, Kenya</div>
+                <ul class="exp-bullets">
+                    <li>Led full-stack backend integration of DiabetesAI web application with Laravel-based portal via FastAPI</li>
+                    <li>Developed RESTful API endpoints enabling specialist discovery and appointment booking functionality</li>
+                    <li>Deployed production-ready applications on AWS with real-time functionality; optimised CI/CD pipelines</li>
+                    <li>Ensured data integrity and security across Python-based AI engine and Laravel portal integration</li>
+                </ul>
+            </div>
 
-                <div style="text-align: center; margin-top: 3rem; animation: pulse 2s infinite;">
-                    <div style="font-size: 2rem;">↓</div>
-                    <div style="font-size: 0.75rem;">SCROLL_TO_CONTINUE</div>
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-role">Software Developer Intern</span>
+                    <span class="exp-date">MAY 2024 – JUL 2024</span>
+                </div>
+                <div class="exp-company">Zulip · Remote (Open Source)</div>
+                <ul class="exp-bullets">
+                    <li>Contributed to the Zulip open-source project — resolved GitHub issues and improved CI/CD workflows</li>
+                    <li>Implemented clean, modular, well-documented code following industry best practices</li>
+                    <li>Enhanced automation capabilities through GoCD integration, streamlining development processes</li>
+                    <li>Participated in code reviews with a distributed international engineering team</li>
+                </ul>
+            </div>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-role">Full-Stack Software Developer</span>
+                    <span class="exp-date">DEC 2023 – FEB 2024</span>
+                </div>
+                <div class="exp-company">The Queen of Peace Initiative · Isiolo, Kenya</div>
+                <ul class="exp-bullets">
+                    <li>Built a complete web application from scratch with intuitive, responsive interface</li>
+                    <li>Integrated secure payment gateways (mobile money & credit/debit cards) with industry-standard compliance</li>
+                    <li>Developed backend infrastructure using Python and Flask; handled authentication and API communication</li>
+                </ul>
+            </div>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-role">Full-Stack Software Developer</span>
+                    <span class="exp-date">DEC 2021 – APR 2024</span>
+                </div>
+                <div class="exp-company">B&amp;N International · Nairobi, Kenya</div>
+                <ul class="exp-bullets">
+                    <li>Developed and maintained a robust booking and reservation web application from the ground up</li>
+                    <li>Designed user-friendly interfaces with seamless workflows for efficient booking management</li>
+                    <li>Implemented regular maintenance cycles including security patches, feature enhancements, and performance updates</li>
+                </ul>
+            </div>
+
+            <div class="exp-entry">
+                <div class="exp-header">
+                    <span class="exp-role">Teaching Assistant</span>
+                    <span class="exp-date">OCT 2023 – DEC 2023</span>
+                </div>
+                <div class="exp-company">Kibo School of Technology · Nairobi, Kenya</div>
+                <ul class="exp-bullets">
+                    <li>Supported course delivery and enhanced student learning experience in technology courses</li>
+                    <li>Provided personalised support through office hours and constructive assignment feedback</li>
+                    <li>Collaborated with the instructional team to improve content delivery methods and materials</li>
+                </ul>
+            </div>
+
+            <!-- Additional experience -->
+            <div style="margin-top:2rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem;">
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-title">beVisioneers Fellow</div>
+                    <div class="exp-company" style="margin-bottom:0.6rem;">Mercedes-Benz · JUL 2024 – PRESENT</div>
+                    <p class="card-text">Selected as a global fellow to prototype sustainable mobility solutions. Collaborated on a circular-economy pilot for e-waste management; presented proof-of-concept to leadership securing mentorship and seed funding.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">₿</div>
+                    <div class="card-title">Summer of Bitcoin Bootcamp</div>
+                    <div class="exp-company" style="margin-bottom:0.6rem;">Remote · JAN 2025 – MAR 2025</div>
+                    <p class="card-text">Gained foundational knowledge of the Bitcoin protocol and cryptography. Contributed to Bitcoin open-source projects through guided mentorship; deepened understanding of distributed systems and decentralised finance.</p>
                 </div>
             </div>
         </section>
 
-        <section id="about">
-            <div class="container">
-                <div class="terminal-line">&gt; cat /home/sydney/profile.txt</div>
-                <h2>[SYSTEM_OVERVIEW]</h2>
-                
-                <div class="card" style="margin-bottom: 2rem;">
-                    <h3>👨‍💻 Software Engineer Profile</h3>
-                    <p style="opacity: 0.9; line-height: 1.8; margin-top: 1rem;">
-                        Software engineer specializing in backend systems, APIs, cloud infrastructure, and sustainable technology solutions. 
-                        Founder of circular-tech and digital infrastructure platforms building real-world solutions.
-                    </p>
-                    <p style="opacity: 0.9; line-height: 1.8; margin-top: 1rem;">
-                        Experienced with large production codebases, secure REST architectures, cloud deployment platforms, 
-                        and interoperable data exchange systems. Combining technical expertise with sustainable innovation 
-                        to create impactful solutions.
-                    </p>
-                </div>
-
-                <div class="grid grid-2">
-                    <div class="card">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">🌍</div>
-                        <h3>Global Impact Engineering</h3>
-                        <p style="opacity: 0.9; line-height: 1.8;">
-                            Building systems that transcend boundaries. Creating scalable solutions for payments, 
-                            healthcare data exchange, and sustainable technology that solve real-world problems 
-                            across multiple domains.
-                        </p>
-                    </div>
-                    
-                    <div class="card">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">♻️</div>
-                        <h3>Sustainable Tech Innovation</h3>
-                        <p style="opacity: 0.9; line-height: 1.8;">
-                            Circular economy engineering for refurbishing phones and laptops as climate action. 
-                            Designing digital incentive systems for environmental preservation and creating 
-                            tech solutions for a sustainable future.
-                        </p>
-                    </div>
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">&gt; ./list_projects.sh --all</div>
+                    <h2 class="section-title">PROJECTS</h2>
                 </div>
             </div>
-        </section>
 
-        <section id="expertise">
-            <div class="container">
-                <div class="terminal-line">&gt; cat /technical/expertise.log</div>
-                <h2>[TECHNICAL_EXPERTISE]</h2>
-                
-                <div class="grid grid-3">
-                    <div class="card">
-                        <h3>⚙️ Backend & API Engineering</h3>
-                        <ul style="margin-top: 1rem;">
-                            <li>REST, JSON APIs, WebSockets</li>
-                            <li>FastAPI, Flask, PHP frameworks</li>
-                            <li>Healthcare data exchange (FHIR)</li>
-                            <li>JWT, OAuth authentication flows</li>
-                            <li>Secure endpoint protection</li>
-                            <li>API architecture design</li>
-                        </ul>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="project-badge badge-deployed">◆ DEPLOYED</div>
+                    <div class="card-title">Know Your Rights — AI Legal Assistant</div>
+                    <p class="card-text">Flutter mobile app providing AI-powered legal guidance, contract review, and document generation. Features an interactive chat interface (Groq LLaMA 3.1), PDF/Word contract analysis with risk assessment, professional document templates (NDAs, leases, wills, contracts), Firebase auth, and cloud sync.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Groq AI</span><span class="tag">Firebase</span><span class="tag">BLoC</span><span class="tag">PDF Generation</span><span class="tag">iOS</span><span class="tag">Android</span>
                     </div>
-
-                    <div class="card">
-                        <h3>☁️ Cloud & DevOps</h3>
-                        <ul style="margin-top: 1rem;">
-                            <li>AWS deployment & testing</li>
-                            <li>Fly.io & Render infrastructure</li>
-                            <li>Laravel PHP codebases</li>
-                            <li>CI/CD pipelines</li>
-                            <li>Containerization & orchestration</li>
-                            <li>Reverse tunneling & routing</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h3>🗄️ Databases & Systems</h3>
-                        <ul style="margin-top: 1rem;">
-                            <li>MySQL persistence architectures</li>
-                            <li>Shared database integration</li>
-                            <li>Python-Laravel data bridges</li>
-                            <li>Data modeling & optimization</li>
-                            <li>Interoperable data exchange</li>
-                            <li>Healthcare standards (FHIR)</li>
-                        </ul>
+                    <div style="margin-top:1rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+                        <a href="https://github.com/WamalwaSydney/Know-Your-Rights.git" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.4rem 0.9rem; font-size:0.7rem;">📁 GitHub</a>
+                        <a href="https://youtu.be/nJwfUVrIj3s" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.4rem 0.9rem; font-size:0.7rem;">▶ Demo Video</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="ventures">
-            <div class="container">
-                <div class="terminal-line">&gt; ./list_ventures.sh --all</div>
-                <h2>[FOUNDER_&_ENGINEER_VENTURES]</h2>
-                
-                <div class="grid grid-2">
-                    <div class="card">
-                        <div class="project-header">
-                            <div style="font-size: 2rem;">💳</div>
-                            <span class="status-badge">ACTIVE</span>
-                        </div>
-                        <h3>StellarPay</h3>
-                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
-                            Founding Engineer & Architect of a Stellar blockchain-based web payment platform 
-                            using multi-party escrow agreements for secure transactions.
-                        </p>
-                        <div>
-                            <span class="tag">Stellar Blockchain</span>
-                            <span class="tag">Payment Systems</span>
-                            <span class="tag">Multi-Party Escrow</span>
-                        </div>
+                <div class="card">
+                    <div class="project-badge badge-active"><span class="dot"></span> ACTIVE</div>
+                    <div class="card-title">Al Shmokh Capital Mobile App</div>
+                    <p class="card-text">React Native mobile application (iOS & Android) for the COMEX Shariah-compliant commodity exchange platform. Manages EAS/Expo build pipelines, Apple/Google provisioning, and secure API integration with Quarkus backend.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">React Native</span><span class="tag">Expo EAS</span><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Fintech</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="project-header">
-                            <div style="font-size: 2rem;">🎭</div>
-                            <span class="status-badge">DEPLOYED</span>
-                        </div>
-                        <h3>ViralVision</h3>
-                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
-                            Creator of a Gen Z social platform for AI-generated memes and short video content, 
-                            combining content creation with viral distribution mechanics.
-                        </p>
-                        <div>
-                            <span class="tag">AI Generation</span>
-                            <span class="tag">Social Platform</span>
-                            <span class="tag">Video Content</span>
-                        </div>
+                <div class="card">
+                    <div class="project-badge badge-active"><span class="dot"></span> ACTIVE</div>
+                    <div class="card-title">Claude AI Chatbot — Al Shmokh</div>
+                    <p class="card-text">Integrated a Claude AI-powered chatbot into the Al Shmokh Capital web application. Engineered backend AI calls off the Vert.x event loop to prevent WebSocket blocking with graceful error handling for reliable customer support automation.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">Claude AI</span><span class="tag">Quarkus</span><span class="tag">Vert.x</span><span class="tag">WebSocket</span><span class="tag">Java</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="project-header">
-                            <div style="font-size: 2rem;">🌐</div>
-                            <span class="status-badge">OPERATIONAL</span>
-                        </div>
-                        <h3>NetShare</h3>
-                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
-                            Founder of a peer-to-peer internet bandwidth sharing platform inspired by Honeygain 
-                            reward mechanics, democratizing internet access.
-                        </p>
-                        <div>
-                            <span class="tag">P2P Network</span>
-                            <span class="tag">Bandwidth Sharing</span>
-                            <span class="tag">Reward System</span>
-                        </div>
+                <div class="card">
+                    <div class="project-badge badge-deployed">◆ DEPLOYED</div>
+                    <div class="card-title">StellarPay</div>
+                    <p class="card-text">Founding Engineer & Architect of a Stellar blockchain-based web payment platform using multi-party escrow agreements for secure, trustless transactions. Active bug-bounty security research on the Stellar Disbursement Platform (HackerOne).</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">Stellar Blockchain</span><span class="tag">Escrow</span><span class="tag">Payments</span><span class="tag">Security Research</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="project-header">
-                            <div style="font-size: 2rem;">🔐</div>
-                            <span class="status-badge">PROTOTYPE</span>
-                        </div>
-                        <h3>SecureNet Overlay Nation</h3>
-                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
-                            White-paper prototype for a quantum-secure digital nation funded through 
-                            enterprise mints, redefining digital sovereignty.
-                        </p>
-                        <div>
-                            <span class="tag">Quantum Security</span>
-                            <span class="tag">Digital Nation</span>
-                            <span class="tag">Infrastructure</span>
-                        </div>
+                <div class="card">
+                    <div class="project-badge badge-deployed">◆ DEPLOYED</div>
+                    <div class="card-title">DiabetesAI Integration — Zendawa</div>
+                    <p class="card-text">Full-stack backend integration of a DiabetesAI web application with a Laravel-based healthcare portal via FastAPI. RESTful endpoints for specialist discovery and appointment booking; deployed on AWS.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">FastAPI</span><span class="tag">Laravel</span><span class="tag">AWS</span><span class="tag">Healthcare</span><span class="tag">FHIR</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="project-header">
-                            <div style="font-size: 2rem;">🛡️</div>
-                            <span class="status-badge">ARCHITECTURE</span>
-                        </div>
-                        <h3>Soteria</h3>
-                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
-                            Founding Architect of a quantum-secure digital nation overlay integrating 
-                            participatory governance and sustainability frameworks.
-                        </p>
-                        <div>
-                            <span class="tag">Quantum Secure</span>
-                            <span class="tag">Governance</span>
-                            <span class="tag">Sustainability</span>
-                        </div>
+                <div class="card">
+                    <div class="project-badge badge-deployed">◆ DEPLOYED</div>
+                    <div class="card-title">Queen of Peace Initiative — Web App</div>
+                    <p class="card-text">Built a complete web application from scratch for an Isiolo-based NGO. Integrated secure mobile money and card payment gateways, with Python/Flask backend, authentication, and comprehensive QA testing.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Payments</span><span class="tag">Non-Profit</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="project-header">
-                            <div style="font-size: 2rem;">♻️</div>
-                            <span class="status-badge">IMPACT</span>
-                        </div>
-                        <h3>Circular Tech Initiative</h3>
-                        <p style="opacity: 0.8; margin: 1rem 0; line-height: 1.6;">
-                            Circular economy engineering for refurbishing phones and laptops as a climate 
-                            action solution, reducing e-waste and promoting sustainability.
-                        </p>
-                        <div>
-                            <span class="tag">E-Waste</span>
-                            <span class="tag">Climate Action</span>
-                            <span class="tag">Circular Economy</span>
-                        </div>
+                <div class="card">
+                    <div class="project-badge badge-prototype">○ PROTOTYPE</div>
+                    <div class="card-title">ViralVision</div>
+                    <p class="card-text">Social platform for Gen Z featuring AI-generated memes and short video content, combining content creation with viral distribution mechanics.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">AI Generation</span><span class="tag">Social Platform</span><span class="tag">Video Content</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="project-badge badge-prototype">○ PROTOTYPE</div>
+                    <div class="card-title">NetShare</div>
+                    <p class="card-text">Peer-to-peer internet bandwidth sharing platform inspired by Honeygain reward mechanics, democratising internet access through an incentive-driven model.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">P2P</span><span class="tag">Bandwidth</span><span class="tag">Reward System</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="project-badge badge-prototype">○ PROTOTYPE</div>
+                    <div class="card-title">Soteria / SecureNet Overlay Nation</div>
+                    <p class="card-text">Founding Architect of a quantum-secure digital nation overlay integrating participatory governance and sustainability frameworks; white-paper prototype stage.</p>
+                    <div class="tags" style="margin-top:1rem;">
+                        <span class="tag">Quantum Security</span><span class="tag">Governance</span><span class="tag">Sustainability</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SKILLS -->
         <section id="skills">
-            <div class="container">
-                <div class="terminal-line">&gt; ls -la /skills/</div>
-                <h2>[TECHNICAL_ARSENAL]</h2>
-                
-                <div class="grid grid-3">
-                    <div class="card">
-                        <h3>Python</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="95"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            █████████▓
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[95%]</div>
-                    </div>
+            <div class="section-header">
+                <div>
+                    <div class="section-label">&gt; ls -la /skills/</div>
+                    <h2 class="section-title">TECHNICAL SKILLS</h2>
+                </div>
+            </div>
 
-                    <div class="card">
-                        <h3>FastAPI / Flask</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="92"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            █████████░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[92%]</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="skill-group-title">Frontend</div>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">React Native</span>
+                        <span class="tag">Flutter</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Redux</span>
+                        <span class="tag">Responsive Design</span>
+                        <span class="tag">UI/UX Implementation</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <h3>JavaScript</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="85"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            ████████░░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[85%]</div>
+                <div class="card">
+                    <div class="skill-group-title">Backend & APIs</div>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express.js</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Quarkus</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">Laravel</span>
+                        <span class="tag">RESTful APIs</span>
+                        <span class="tag">WebSockets</span>
+                        <span class="tag">JWT / OAuth</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <h3>REST APIs</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="95"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            █████████▓
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[95%]</div>
+                <div class="card">
+                    <div class="skill-group-title">Databases</div>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Redis</span>
+                        <span class="tag">Prisma ORM</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <h3>AWS Cloud</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="85"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            ████████░░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[85%]</div>
+                <div class="card">
+                    <div class="skill-group-title">DevOps & Cloud</div>
+                    <div class="tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">CI/CD Pipelines</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Expo EAS</span>
+                        <span class="tag">Fly.io</span>
+                        <span class="tag">Render</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <h3>MySQL</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="88"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            ████████▓░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[88%]</div>
+                <div class="card">
+                    <div class="skill-group-title">AI / ML & Testing</div>
+                    <div class="tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">AI Chatbot Development</span>
+                        <span class="tag">Claude AI API</span>
+                        <span class="tag">Jest</span>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <h3>PHP / Laravel</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="80"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            ████████░░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[80%]</div>
-                    </div>
-
-                    <div class="card">
-                        <h3>WebSockets</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="82"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            ████████░░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[82%]</div>
-                    </div>
-
-                    <div class="card">
-                        <h3>Docker / CI/CD</h3>
-                        <div class="skill-bar">
-                            <div class="skill-fill" data-level="85"></div>
-                        </div>
-                        <div style="font-size: 0.75rem; opacity: 0.6;">
-                            ████████░░
-                        </div>
-                        <div style="text-align: right; font-size: 0.75rem; opacity: 0.6;">[85%]</div>
+                <div class="card">
+                    <div class="skill-group-title">Tools & Other</div>
+                    <div class="tags">
+                        <span class="tag">VSCode</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">IntelliJ IDEA</span>
+                        <span class="tag">Android Studio</span>
+                        <span class="tag">PhpStorm</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">Stellar SDK</span>
+                        <span class="tag">FHIR</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <div class="container">
-                <div class="terminal-line">&gt; init_connection --secure</div>
-                <h2>[ESTABLISH_LINK]</h2>
-                
-                <div style="border: 2px solid #0F0; padding: 3rem; background: rgba(0, 0, 0, 0.5);">
-                    <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.8;">
-                        Ready to collaborate on backend systems, cloud architecture, or sustainable tech solutions? 
-                        Execute the connection protocol and let's build something extraordinary together.
-                    </p>
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">&gt; cat education.txt</div>
+                    <h2 class="section-title">EDUCATION & CERTIFICATIONS</h2>
+                </div>
+            </div>
 
-                    <div class="social-links" style="margin-bottom: 2rem;">
-                        <a href="https://github.com/SydneyWamalwa" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <span>📁</span>
-                            <span>github.com/SydneyWamalwa</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sydney-wamalwa-679b29240/" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <span>💼</span>
-                            <span>LinkedIn Profile</span>
-                        </a>
-                        <a href="https://www.instagram.com/wamalwasydney/" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <span>📸</span>
-                            <span>@wamalwasydney</span>
-                        </a>
-                        <a href="mailto:sydneywamalwa@gmail.com" class="social-link">
-                            <span>✉️</span>
-                            <span>sydneywamalwa@gmail.com</span>
-                        </a>
+            <div style="margin-bottom:2.5rem;">
+                <div class="edu-entry">
+                    <div class="edu-year">SEP 2024<br>– PRESENT</div>
+                    <div class="edu-info">
+                        <div class="edu-degree">Bachelor's in Software Engineering</div>
+                        <div class="edu-school">African Leadership University · Kigali, Rwanda</div>
                     </div>
+                </div>
+                <div class="edu-entry">
+                    <div class="edu-year">JUL 2023<br>– AUG 2024</div>
+                    <div class="edu-info">
+                        <div class="edu-degree">Undergraduate Diploma in Computer Science</div>
+                        <div class="edu-school">Kibo School of Technology · New York, NY</div>
+                    </div>
+                </div>
+                <div class="edu-entry">
+                    <div class="edu-year">MAY 2019<br>– AUG 2019</div>
+                    <div class="edu-info">
+                        <div class="edu-degree">Certificate in Full Stack Development</div>
+                        <div class="edu-school">Emobilis · Nairobi, Kenya</div>
+                    </div>
+                </div>
+            </div>
 
-                    <a href="Sydney Wamalwa Resume.pdf" download class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <span>📥</span>
-                        <span>[DOWNLOAD_RESUME.pdf]</span>
+            <h3 style="font-family:'Space Mono',monospace; color:var(--green); font-size:0.95rem; margin-bottom:1.2rem;">CERTIFICATIONS</h3>
+            <div class="grid-3">
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Blockchain Basics</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">Coursera · University at Buffalo</div>
+                </div>
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Blockchain Fundamentals V2</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">IBM · 2022</div>
+                </div>
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Track Donations with Blockchain</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">IBM · 2022</div>
+                </div>
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Build Voting Application using Blockchain</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">IBM · 2022</div>
+                </div>
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Build Car Auction App on Blockchain</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">IBM · 2022</div>
+                </div>
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Artificial Intelligence Intro</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">IBM Digital Nation Africa</div>
+                </div>
+                <div class="card" style="padding:1.2rem;">
+                    <div class="card-title" style="font-size:0.82rem;">Internet of Things Intro</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim);">IBM · 2019</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">&gt; init_connection --secure</div>
+                    <h2 class="section-title">CONTACT</h2>
+                </div>
+            </div>
+
+            <div class="contact-box">
+                <p style="font-size:0.92rem; color:var(--text-dim); line-height:1.9; max-width:600px;">
+                    Available for full-time roles, contract work, or collaboration on backend systems, cloud architecture, 
+                    AI integration, mobile development, or sustainable tech solutions.
+                </p>
+
+                <div class="social-links">
+                    <a href="mailto:sydneywamalwa@gmail.com" class="social-link">
+                        <span>✉</span> sydneywamalwa@gmail.com
                     </a>
+                    <a href="tel:+254714359080" class="social-link">
+                        <span>📱</span> +254 714 359 080
+                    </a>
+                    <a href="https://github.com/WamalwaSydney" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>📁</span> github.com/WamalwaSydney
+                    </a>
+                    <a href="https://www.linkedin.com/in/sydney-wamalwa-679b29240/" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>💼</span> LinkedIn Profile
+                    </a>
+                    <a href="https://www.instagram.com/wamalwasydney/" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>📸</span> @wamalwasydney
+                    </a>
+                </div>
+
+                <div style="margin-top:2rem;">
+                    <a href="Sydney_Wamalwa_CV.pdf" download class="btn">↓ DOWNLOAD CV</a>
                 </div>
             </div>
         </section>
 
         <footer>
-            <div class="terminal-line">&gt; System.exit(0);</div>
-            <p>© <span id="current-year"></span> SYDNEY_ERIK_WAMALWA // ALL_RIGHTS_RESERVED</p>
-            <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.5rem;">
-                Backend Engineer | Cloud Architect | Sustainable Tech Innovator | beVisioneers Fellow
-            </p>
-            <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.25rem;">
-                [Built with Precision // Deployed with Purpose // Optimized for Impact]
-            </p>
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.5rem;">&gt; System.exit(0);</div>
+            <p>© <span id="current-year"></span> SYDNEY ERIK WAMALWA // ALL RIGHTS RESERVED</p>
+            <p>Full-Stack Engineer · AI Integration · Cloud · Mobile · Fintech · beVisioneers Fellow</p>
         </footer>
     </div>
 
     <script>
-        // Auto-update footer year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Matrix Rain Effect
+        // Matrix rain
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
+        const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+        resize();
+        window.addEventListener('resize', resize);
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+        const fs = 13;
+        let drops = [];
+        const init = () => { drops = Array(Math.floor(canvas.width / fs)).fill(1); };
+        init();
+        window.addEventListener('resize', init);
 
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        function draw() {
+            ctx.fillStyle = 'rgba(5,10,5,0.06)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fs + 'px JetBrains Mono, monospace';
             for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fs, drops[i] * fs);
+                if (drops[i] * fs > canvas.height && Math.random() > 0.975) drops[i] = 0;
                 drops[i]++;
             }
         }
+        setInterval(draw, 40);
 
-        setInterval(drawMatrix, 33);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Typing Effect
-        const typedTextElement = document.getElementById('typed-text');
-        const fullText = "root@sydney:~$ whoami";
-        let index = 0;
-
-        function typeText() {
-            if (index <= fullText.length) {
-                typedTextElement.textContent = fullText.slice(0, index);
-                index++;
-                setTimeout(typeText, 100);
-            } else {
-                typedTextElement.classList.remove('typing-cursor');
-            }
-        }
-
-        setTimeout(typeText, 1000);
-
-        // Animate Skill Bars
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-fill');
-                    skillBars.forEach(bar => {
-                        const level = bar.getAttribute('data-level');
-                        bar.style.width = level + '%';
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        const skillsSection = document.getElementById('skills');
-        if (skillsSection) {
-            observer.observe(skillsSection);
-        }
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const el = document.querySelector(a.getAttribute('href'));
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
